@@ -29,8 +29,8 @@ public class AppConfig {
         properties.put("hibernate.hbm2ddl.auto", "update");
 
         LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
-        // Target the model package to scan
-        sessionFactoryBean.setPackagesToScan("model");
+        // Target the entity package to scan
+        sessionFactoryBean.setPackagesToScan("productentity");
 
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
