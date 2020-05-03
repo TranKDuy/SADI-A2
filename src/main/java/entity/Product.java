@@ -1,4 +1,4 @@
-package productentity;
+package entity;
 import javax.persistence.*;
 
 @Entity
@@ -18,7 +18,7 @@ public class Product {
     protected String company;
     @Column
     public String description;
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.PERSIST)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "catergory")
     private Catergory catergory;
 

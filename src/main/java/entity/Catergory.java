@@ -1,4 +1,4 @@
-package productentity;
+package entity;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ public class Catergory {
     private int id;
     @Column
     protected String name;
-    @OneToMany(cascade =  CascadeType.ALL,targetEntity = Product.class)
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "catergory")
     private List<Product> products = new ArrayList<>();
 
     public Catergory() {

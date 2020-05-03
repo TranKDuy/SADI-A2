@@ -15,7 +15,7 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 @EnableWebMvc
-@ComponentScan
+@ComponentScan({"controller", "service"})
 public class AppConfig {
     @Bean
     public LocalSessionFactoryBean sessionFactory(){
@@ -23,14 +23,12 @@ public class AppConfig {
         Properties properties = new Properties();
         //For Postgresql
         properties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
-        //For mysql
-        //properties.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
         properties.put("hibernate.show_sql", true);
         properties.put("hibernate.hbm2ddl.auto", "update");
 
         LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
         // Target the entity package to scan
-        sessionFactoryBean.setPackagesToScan("productentity");
+        sessionFactoryBean.setPackagesToScan("entity");
 
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
