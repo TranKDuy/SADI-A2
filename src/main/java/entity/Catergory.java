@@ -1,5 +1,7 @@
 package entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 
@@ -9,14 +11,14 @@ import java.util.List;
 @Entity
 public class Catergory {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private int id;
     @Column
     protected String name;
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "catergory")
-    private List<Product> products = new ArrayList<>();
 
+    @OneToMany(mappedBy = "catergory",cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Product> products;
     public Catergory() {
     }
 

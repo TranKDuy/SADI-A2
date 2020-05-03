@@ -18,7 +18,7 @@ public class Product {
     protected String company;
     @Column
     public String description;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name = "catergory")
     private Catergory catergory;
 
