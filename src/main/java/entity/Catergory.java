@@ -11,10 +11,11 @@ import java.util.List;
 @Entity
 public class Catergory {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private int id;
+    private int catergoryid;
     @Column
-    protected String name;
+    protected String catergoryname;
 
     @OneToMany(mappedBy = "catergory",cascade = CascadeType.ALL)
     @JsonIgnore
@@ -22,20 +23,20 @@ public class Catergory {
     public Catergory() {
     }
 
-    public int getId() {
-        return id;
+    public int getCatergoryid() {
+        return catergoryid;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCatergoryid(int catergoryid) {
+        this.catergoryid = catergoryid;
     }
 
-    public String getName() {
-        return name;
+    public String getCatergoryname() {
+        return catergoryname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCatergoryname(String catergoryname) {
+        this.catergoryname = catergoryname;
     }
 
     public List<Product> getProducts() {

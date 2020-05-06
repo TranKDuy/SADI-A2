@@ -32,7 +32,7 @@ public class ProductService {
         Query query = sessionFactory.getCurrentSession().createQuery("from Product where id=:id");
         query.setInteger("id", id);
 
-        return (Product) query.uniqueResult();
+        return(Product)query.uniqueResult();
 
     }
     //Delete Product by their Id
@@ -41,11 +41,7 @@ public class ProductService {
         this.sessionFactory.getCurrentSession().delete(product);
         return id;
     }
-    //Get teacher by their name
-    public List<Product> findProduct(String name){
-        Query query = sessionFactory.getCurrentSession().createQuery("from Product s where s.name like :name");
-        query.setString("name", "%"+name+"%");
-        return query.list();
+    public List<Product> getAllProduct(){
+        return sessionFactory.getCurrentSession().createQuery("from Product").list();
     }
-
 }

@@ -1,26 +1,34 @@
 package entity;
-import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.persistence.*;
+import java.util.List;
 @Entity
 @Table(name = "Product")
 public class Product {
     @Id
-    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private int id;
+
     @Column
-    protected String name;
+    private String name;
     @Column
-    protected String model;
+    private String model;
     @Column
-    protected String brand;
+    private String brand;
     @Column
-    protected String company;
+    private String company;
     @Column
-    public String description;
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    private String description;
+
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "catergory")
     private Catergory catergory;
+
+    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<ProviderOrder> orders;
 
     public Product() {
     }
@@ -80,4 +88,12 @@ public class Product {
     public void setCatergory(Catergory catergory) {
         this.catergory = catergory;
     }
+
+    public List<ProviderOrder> getOrders() {
+   return orders;
+}
+
+    public void setOrders(List<ProviderOrder> orders) {
+ this.orders = orders;
+  }
 }

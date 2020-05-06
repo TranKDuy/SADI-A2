@@ -12,10 +12,10 @@ import java.util.List;
 public class ProductController {
 @Autowired
     private ProductService productService;
-    //Get product by name
-    @RequestMapping(path = "product/search",method = RequestMethod.GET)
-    public List<Product> getProductByName(@RequestParam(required = false) String s){
-        return productService.findProduct(s);
+    //Get all Product
+    @RequestMapping(path= "products",method = RequestMethod.GET)
+    public List<Product> getAllProducts(){
+        return  productService.getAllProduct();
     }
     //get Product by id
     @RequestMapping(path = "product",method = RequestMethod.GET)
@@ -27,13 +27,16 @@ public class ProductController {
     public Product addProduct(@RequestBody Product product){
         return productService.addProduct(product);
     }
-    //update exist students
+    //update exist product
     @RequestMapping(path = "product",method = RequestMethod.PUT)
     public Product updateProduct(@RequestBody Product product){
         return productService.updateProduct(product);
     }
+    //Delete Product
     @RequestMapping(path = "product/{id}",method = RequestMethod.DELETE)
     public int deleteProduct(@PathVariable int id){
         return productService.deleteProduct(id);
     }
+
+
 }
