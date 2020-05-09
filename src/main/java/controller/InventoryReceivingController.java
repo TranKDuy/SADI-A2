@@ -10,21 +10,19 @@ import service.InventoryReceivingService;
 public class InventoryReceivingController {
     @Autowired
     private InventoryReceivingService inventoryReceivingService;
-    @RequestMapping(path = "IRS",method = RequestMethod.GET)
+    @RequestMapping(path = "irs",method = RequestMethod.GET)
     public InventoryReceivingService getReceivingNote(@RequestParam int id){
         return inventoryReceivingService.getReceivingNote(id);
     }
-
-    @RequestMapping(path = "IRS",method = RequestMethod.POST)
+    @RequestMapping(path = "irs",method = RequestMethod.POST)
     public InventoryReceivingService addReceivingNote(@RequestBody InventoryReceivingService inventoryReceivingService){
         return inventoryReceivingService.addReceivingNote(inventoryReceivingService);
     }
-
-    @RequestMapping(path = "IRS",method = RequestMethod.PUT)
+    @RequestMapping(path = "irs",method = RequestMethod.PUT)
     public InventoryReceivingService updateReceivingNote(@RequestBody InventoryReceivingService inventoryReceivingService){
         return inventoryReceivingService.updateReceivingNote(inventoryReceivingService);
     }
-    @RequestMapping(path = "IRS/{id}",method = RequestMethod.DELETE)
+    @RequestMapping(path = "irs/{id}",method = RequestMethod.DELETE)
     public int deleteReceivingNote(@PathVariable int id){
         return inventoryReceivingService.deleteReceivingNote(id);
     }

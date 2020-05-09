@@ -19,7 +19,7 @@ public class OrderController {
     }
     //Get by id
     @RequestMapping(path = "providerorder",method = RequestMethod.GET)
-    public ProviderOrder getProduct(@RequestParam int id){
+    public ProviderOrder getOrder(@RequestParam int id){
         return orderService.getOrder(id);
     }
     //add new
