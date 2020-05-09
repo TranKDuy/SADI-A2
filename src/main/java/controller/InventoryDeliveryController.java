@@ -1,8 +1,11 @@
 package controller;
 
+import entity.InventoryDeliveryNote;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import service.InventoryDeliveryService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "/")
@@ -26,5 +29,10 @@ public class InventoryDeliveryController {
     @RequestMapping(path = "ids/{id}",method = RequestMethod.DELETE)
     public int deleteDeliveryNote(@PathVariable int id){
         return inventoryDeliveryService.deleteDeliveryNote(id);
+    }
+
+    @RequestMapping(path = "ids/search",method = RequestMethod.GET)
+    public List<InventoryDeliveryNote> getDeliveryNoteByDate(@RequestParam(required = false) String s){
+        return inventoryDeliveryService.findDeliveryNote(s);
     }
 }

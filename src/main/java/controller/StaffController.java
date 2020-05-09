@@ -3,9 +3,7 @@ import entity.Staff;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import service.StaffService;
-
 import java.util.List;
-
 @RestController
 @RequestMapping(path = "/")
 public class StaffController {
