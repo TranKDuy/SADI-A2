@@ -1,12 +1,10 @@
 package entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import javax.persistence.*;
 
 @Entity
-@Table(name = "inventoryreceivingnote")
-public class InventoryReceivingNote {
+@Table(name = "inventorydeliverynote")
+public class InventoryDeliveryNote {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
@@ -23,7 +21,7 @@ public class InventoryReceivingNote {
     @JoinColumn(name = "staff")
     private Staff staff;
 
-    public InventoryReceivingNote() {
+    public InventoryDeliveryNote() {
     }
 
     public int getId() {
