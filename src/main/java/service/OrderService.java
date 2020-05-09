@@ -23,11 +23,6 @@ public class OrderService {
         return order;
     }
 
-    public ProviderOrder updateOrder(ProviderOrder order){
-        sessionFactory.getCurrentSession().update(order);
-        return order;
-    }
-
     public ProviderOrder getOrder(int id){
         Query query = sessionFactory.getCurrentSession().createQuery("from ProviderOrder where id=:id");
         query.setInteger("id", id);

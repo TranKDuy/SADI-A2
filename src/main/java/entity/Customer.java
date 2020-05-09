@@ -20,6 +20,8 @@ public class Customer {
     private String email;
     @Column
     private String contactperson;
+    @Column
+    private double price;
 
     public Customer() {
     }
@@ -78,5 +80,13 @@ public class Customer {
 
     public void setContactperson(String contactperson) {
         this.contactperson = contactperson;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }

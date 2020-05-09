@@ -1,5 +1,6 @@
 package entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
@@ -23,6 +24,10 @@ public class ProviderOrder {
 
     @Column
     private int price;
+
+    @OneToOne(mappedBy = "providerOrder",cascade = CascadeType.ALL)
+    @JsonIgnore
+    private InventoryReceivingNote inventoryReceivingNote;
 
     public ProviderOrder() {
     }
@@ -49,5 +54,21 @@ public class ProviderOrder {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public InventoryReceivingNote getInventoryReceivingNote() {
+        return inventoryReceivingNote;
+    }
+
+    public void setInventoryReceivingNote(InventoryReceivingNote inventoryReceivingNote) {
+        this.inventoryReceivingNote = inventoryReceivingNote;
     }
 }

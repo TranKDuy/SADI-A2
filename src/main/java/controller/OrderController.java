@@ -27,11 +27,6 @@ public class OrderController {
     public ProviderOrder addOrder(@RequestBody ProviderOrder order){
         return orderService.addOrder(order);
     }
-    //update exist
-    @RequestMapping(path = "providerorder",method = RequestMethod.PUT)
-    public ProviderOrder updateOrder(@RequestBody ProviderOrder order){
-        return orderService.updateOrder(order);
-    }
     //Delete
     @RequestMapping(path = "providerorder/{id}",method = RequestMethod.DELETE)
     public int deleteOrder(@PathVariable int id){

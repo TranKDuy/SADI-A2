@@ -1,5 +1,8 @@
 package entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 
 @Entity
@@ -17,6 +20,9 @@ public class Staff {
     private int phone;
     @Column
     private String email;
+    @OneToOne (cascade = CascadeType.ALL)
+    @JsonIgnore
+    private InventoryReceivingNote inventoryReceivingNote;
 
     public Staff() {
     }
