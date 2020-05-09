@@ -12,7 +12,7 @@ public class StaffController {
     @Autowired
     private StaffService staffService;
     //Get all
-    @RequestMapping(path= "allstaff",method = RequestMethod.GET)
+    @RequestMapping(path= "staffs",method = RequestMethod.GET)
     public List<Staff> getAllStaff(){
         return  staffService.getAllStaff();
     }
