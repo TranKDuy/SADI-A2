@@ -14,6 +14,8 @@ public class SalesInvoice {
     @Column
     private String date;
 
+    @Column
+    private double totalvalue;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "staff")
     private Staff staff;
@@ -21,6 +23,11 @@ public class SalesInvoice {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "customer")
     private Customer customer;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "providerOrder")
+    private ProviderOrder providerOrder;
+
 
     public SalesInvoice() {
     }
@@ -57,4 +64,19 @@ public class SalesInvoice {
         this.customer = customer;
     }
 
+    public double getTotalvalue() {
+        return totalvalue;
+    }
+
+    public void setTotalvalue(double totalvalue) {
+        this.totalvalue = totalvalue;
+    }
+
+    public ProviderOrder getProviderOrder() {
+        return providerOrder;
+    }
+
+    public void setProviderOrder(ProviderOrder providerOrder) {
+        this.providerOrder = providerOrder;
+    }
 }

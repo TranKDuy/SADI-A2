@@ -32,6 +32,10 @@ public class ProviderOrder {
     @JsonIgnore
     private InventoryDeliveryNote inventoryDeliveryNote;
 
+    @OneToOne(mappedBy = "providerOrder",cascade = CascadeType.ALL)
+    @JsonIgnore
+    private SalesInvoice salesInvoice;
+
     public ProviderOrder() {
     }
 
@@ -81,5 +85,13 @@ public class ProviderOrder {
 
     public void setInventoryDeliveryNote(InventoryDeliveryNote inventoryDeliveryNote) {
         this.inventoryDeliveryNote = inventoryDeliveryNote;
+    }
+
+    public SalesInvoice getSalesInvoice() {
+        return salesInvoice;
+    }
+
+    public void setSalesInvoice(SalesInvoice salesInvoice) {
+        this.salesInvoice = salesInvoice;
     }
 }
