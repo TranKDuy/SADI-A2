@@ -1,4 +1,6 @@
 package entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -22,6 +24,9 @@ public class Customer {
     private String contactperson;
     @Column
     private double price;
+    @OneToOne (mappedBy = "staff",cascade = CascadeType.ALL)
+    @JsonIgnore
+    private SalesInvoice salesInvoice;
 
     public Customer() {
     }
@@ -88,5 +93,13 @@ public class Customer {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public SalesInvoice getSalesInvoice() {
+        return salesInvoice;
+    }
+
+    public void setSalesInvoice(SalesInvoice salesInvoice) {
+        this.salesInvoice = salesInvoice;
     }
 }

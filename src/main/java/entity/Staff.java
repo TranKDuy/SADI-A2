@@ -1,7 +1,7 @@
 package entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import service.InventoryDeliveryService;
 
 import javax.persistence.*;
 
@@ -20,10 +20,18 @@ public class Staff {
     private int phone;
     @Column
     private String email;
-    @OneToOne (cascade = CascadeType.ALL)
+
+    @OneToOne (mappedBy = "staff",cascade = CascadeType.ALL)
     @JsonIgnore
     private InventoryReceivingNote inventoryReceivingNote;
 
+    @OneToOne (mappedBy = "staff",cascade = CascadeType.ALL)
+    @JsonIgnore
+    private InventoryDeliveryNote inventoryDeliveryNote;
+
+    @OneToOne (mappedBy = "staff",cascade = CascadeType.ALL)
+    @JsonIgnore
+    private SalesInvoice salesInvoice;
     public Staff() {
     }
 
@@ -65,5 +73,29 @@ public class Staff {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public InventoryReceivingNote getInventoryReceivingNote() {
+        return inventoryReceivingNote;
+    }
+
+    public void setInventoryReceivingNote(InventoryReceivingNote inventoryReceivingNote) {
+        this.inventoryReceivingNote = inventoryReceivingNote;
+    }
+
+    public InventoryDeliveryNote getInventoryDeliveryNote() {
+        return inventoryDeliveryNote;
+    }
+
+    public void setInventoryDeliveryNote(InventoryDeliveryNote inventoryDeliveryNote) {
+        this.inventoryDeliveryNote = inventoryDeliveryNote;
+    }
+
+    public SalesInvoice getSalesInvoice() {
+        return salesInvoice;
+    }
+
+    public void setSalesInvoice(SalesInvoice salesInvoice) {
+        this.salesInvoice = salesInvoice;
     }
 }

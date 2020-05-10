@@ -30,6 +30,9 @@ public class Product {
     @JsonIgnore
     private List<ProviderOrder> orders;
 
+
+
+
     public Product() {
     }
 
@@ -96,4 +99,5 @@ public class Product {
     public void setOrders(List<ProviderOrder> orders) {
  this.orders = orders;
   }
+
 }
